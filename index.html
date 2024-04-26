@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="scripts/main.js"></script>
+</head>
+<body>
+    
+    <div>Principal: <input type="number" id="principalElement"></div><br>
+    <div>Interest Rate: <input type="number" id="interestElement"></div><br>
+    <div>Loan Term (years): <input type="number" id="loanElement"></div><br>
+    <button id="calc">CALCULATE</button><br>
+    <div>Monthly Payment: <input type="number" id="outputElement" readonly></div>
+    <div>Total Paid: <input type="number" id="totalElement" readonly></div>
+    <div>Interest Paid: <input type="number" id="paidElement" readonly></div>
+
+
+  
+
+
+
+
+</body>
+<script>
+
+    function doCalc(){
+        const principal = Number(principalElement.value);
+        const interestRate = Number(interestElement.value);
+        const loanLength = Number(loanElement.value);
+        const result = mortgageCalculator(principal, interestRate, loanLength);
+
+        // const interestPaid = totalPaid - principal;
+        const totalPaid = result * (loanLength * 12);
+
+        outputElement.value = result;
+        totalElement.value = totalPaid;
+        paidElement.value = totalPaid - principal;
+    }
+
+    calc.onclick = doCalc;
+
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="scripts/main.js"></script>
+</head>
+
+
+
+
+<body>
+    
+    <div>Deposit: <input type="number" id="depositElement"></div><br>
+    <div> Interest Rate: <input type="number" id="interestElement"></div><br>
+    <div> Time (years): <input type="number" id="timeElement"></div><br>
+    <button id="calctwo">CALCULATE</button> <br>
+    <div>Future Value: <input type="number" id="futureElement" readonly></div><br>
+    <div>Interest Gained: <input type="number" id="gainedInterestElement" readonly></div><br>
+</body>
+
+<script>
+
+    function doCalcTwo(){
+        const deposit = Number(depositElement.value);
+        const compoundInterest = Number(interestElement.value);
+        const years = Number(timeElement.value);
+        const output = compoundCalculator(deposit, compoundInterest, years);
+
+
+        futureElement.value = output;
+        gainedInterestElement.value = (output - deposit).toFixed(2);
+    }
+
+
+    calctwo.onclick = doCalcTwo;
+
+</script>
+
+
+</html>
